@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="bodycontent">
+    <div id="intro">
+      <p>Eclipse IDE is slow. Java 9 is now supported by Eclipse Oxygen.  I show you how to install a minimum version of <strong>Eclipse IDE for Java EE Developers</strong>, without the bloat, and fast!!!</p>
+    </div>
+    <section id="downloading">
+      <div id="download">
+        <h1>Download</h1>
+        <div id="downloadtext" class="item">
+          <p>1. Download Eclipse installer from <a href="https://www.eclipse.org/downloads/eclipse-packages/">Eclipse.org download site</a>:</p>
+        </div>
+        <img src="images/Screenshot_2017-10-11_15-04-15-top.png"></img>
+        <div id="downloadtext2" class="item">
+          <p>2. Select linux 64 bit:</p>
+        </div>
+        <img src="images/Screenshot_2017-10-11_15-04-15-bottom.png"></img>
+        <div id="downloadtext3" class="item">
+          <p>3. Save the download to your Downloads directory:</p>
+        </div>
+        <code>~/Downloads/</code>
+        <div id="downloadtext4" class="item">
+          <p>4. Rename the existing Eclipse settings directory. (We want a brand new environment):</p>
+        </div>
+        <pre class="code">
+$ cd ~
+$ ls -lart | grep eclipse
+drwxrwxr-x   10 louie louie   4096 Sep 23 18:00 .eclipse
+$ mv ~/.eclipse ~/.oldeclipse
+$ ls -lart | grep eclipse
+drwxrwxr-x   10 louie louie   4096 Sep 23 18:00 .oldeclipse
+        </pre>
+        <div id="downloadtext4" class="item">
+          <p>Go to ~/Downloads, uncompress the download into ~/Downloads/:</p>
+        </div>
+        <pre class="code">
+$ cd ~/Downloads
+$ ls -lart eclipse-inst*
+-rw-rw-r-- 1 louie louie 48022873 Oct 11 16:13 eclipse-inst-linux64.tar.gz
+
+$ tar -xzf eclipse-inst-linux64.tar.gz
+
+$ ls -lart | grep eclipse-inst
+drwxr-xr-x   7 louie louie      4096 Jun 14 02:38 eclipse-installer
+-rw-rw-r--   1 louie louie  48022873 Oct 11 16:13 eclipse-inst-linux64.tar.gz
+        </pre>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
