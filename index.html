@@ -8,26 +8,35 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="bodycontent">
-    <div id="intro">
+  <div>
+    <div>
       <p>Eclipse IDE is slow. Java 9 is now supported by Eclipse Oxygen.  I show you how to install a minimum version of <strong>Eclipse IDE for Java EE Developers</strong>, without the bloat, and fast!!!</p>
     </div>
-    <section id="downloading">
-      <h3>Download</h3>
-      <div id="download">
-        <div id="downloadtext" class="item">
-          <h4>1. Download Eclipse installer from <a href="https://www.eclipse.org/downloads/eclipse-packages/">Eclipse.org download site</a>:</h4>
+
+    <section>
+      <h3>Download Oracle Java 9 JDK</h3>
+      <div>
+        <h4>1. Download JDK from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html">Oracle download site</a>  and save the download to your Downloads directory:</h4>
+        <p><code>~/Downloads/</code></p>
+        <p><img alt="http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html" src="images/downloadjdk.png"></p>
+      </div>
+    </section>
+
+
+
+    <section>
+      <h3>Download Eclipse IDE Installer</h3>
+      <div>
+        <div>
+          <h4>2. Visit the <a href="https://www.eclipse.org/downloads/eclipse-packages/">Eclipse.org download site</a>:</h4>
+          <p><img alt="https://www.eclipse.org/downloads/eclipse-packages/" src="images/Screenshot_2017-10-11_15-04-15-top.png"></p>
         </div>
-        <img alt="https://www.eclipse.org/downloads/eclipse-packages/" src="images/Screenshot_2017-10-11_15-04-15-top.png">
-        <div id="downloadtext2" class="item">
-          <h4>2. Select linux 64 bit:</h4>
+        <div>
+          <h4>3. Download the Eclipse IDE linux 64 bit and save the download to your Downloads directory:</h4>
+          <p><code>~/Downloads/</code></p>
+          <p><img alt="Eclipse IDE linux 64 bit installer download" src="images/Screenshot_2017-10-11_15-04-15-bottom.png"></p>
         </div>
-        <img alt="Eclipse IDE linux 64 bit installer download" src="images/Screenshot_2017-10-11_15-04-15-bottom.png">
-        <div id="downloadtext3" class="item">
-          <h4>3. Save the download to your Downloads directory:</h4>
-        </div>
-        <code>~/Downloads/</code>
-        <div id="downloadtext4" class="item">
+        <div>
           <h4>4. Rename the existing Eclipse settings directory. (We want a brand new environment):</h4>
         </div>
         <pre class="code">
@@ -38,8 +47,8 @@ $ mv ~/.eclipse ~/.oldeclipse
 $ ls -lart | grep eclipse
 drwxrwxr-x   10 louie louie   4096 Sep 23 18:00 .oldeclipse
         </pre>
-        <div id="downloadtext5" class="item">
-          <h4>5. Go to ~/Downloads, uncompress the download into ~/Downloads/:</h4>
+        <div>
+          <h4>5. Go to ~/Downloads, uncompress the <strong>Eclipse download</strong> into ~/Downloads/:</h4>
         </div>
         <pre class="code">
 $ cd ~/Downloads
@@ -52,7 +61,90 @@ $ ls -lart | grep eclipse-inst
 drwxr-xr-x   7 louie louie      4096 Jun 14 02:38 eclipse-installer
 -rw-rw-r--   1 louie louie  48022873 Oct 11 16:13 eclipse-inst-linux64.tar.gz
         </pre>
+        <div>
+          <h4>6. Also in ~/Downloads, uncompress the <strong>JDK download</strong> into ~/Downloads/:</h4>
+        </div>
+        <pre class="code">
+$ cd ~/Downloads
+$ ls -larth | grep jdk-9
+-rw-rw-r--   1 louie louie 331M Oct 11 17:27 jdk-9_linux-x64_bin.tar.gz
+$ tar -xzf jdk-9_linux-x64_bin.tar.gz
+$ ls -larth | grep jdk-9
+-rw-rw-r--   1 louie louie 331M Oct 11 17:27 jdk-9_linux-x64_bin.tar.gz
+drwxrwxr-x   8 louie louie 4.0K Oct 11 18:15 jdk-9
+        </pre>
       </div>
+    </section>
+    <section>
+      <h3>Remaining steps</h3>
+      <ol start="7">
+        <li>
+          <h4>Add Java's bin directory to the path:</h4>
+          <pre>
+          $ echo 'export PATH=~/Downloads/jdk-9/bin:$PATH' >> ~/.bashrc
+          $ source ~/.bashrc
+
+          $ jshell
+          |  Welcome to JShell -- Version 9
+          |  For an introduction type: /help intro
+
+          jshell> /exit
+          |  Goodbye
+          $
+          </pre>
+        </li>
+        <li>
+          <h4>Start the install of Eclipse:</h4>
+          <pre>
+            $ cd eclipse-installer
+            $ ./eclipse-inst
+          </pre>
+        </li>
+        <li>
+          <h4>After the installer program starts, click the icon to update the installer (top)</h4>
+        </li>
+        <li>
+          <h4>Click on Eclipse Platform (absolute minimum IDE) and accept the suggested directory</h4>
+        </li>
+        <li>
+          <h4>Help/Install New Software/All Available Sites:</h4>
+          <p>-Eclipse Java EE Developer Tools<p>
+          <p>-Eclipse Java Web Developer Tools</p>
+        </li>
+        <li>
+          <h4>Install: JST Server Adapter Extension (just this one!)</h4>
+        </li>
+        <li>
+          <h4>Window/Perspective/Open Perspective/Other/Java EE</h4>
+        </li>
+        <li>
+          <h4>Window/Show View/Other/Problems</h4>
+        </li>
+        <li>
+          <h4>File/New/Dynamic Web Project/myproject/Finish</h4>
+        </li>
+        <li>
+          <h4>Right click on myproject/New/Servlet/Java package:mystuff/Class name:MyServlet/Finish</h4>
+        </li>
+        <li>
+          <h4>Right click on myproject/Run as/Run on server/Choose Tomcat 9/Finish (shows error page)</h4>
+        </li>
+        <li>
+          <h4>Point Firefox/Chrome to http://localhost:8080/myproject/MyServlet (and smile!)</h4>
+        </li>
+        <li>
+          <h4>Find WebContent folder in the project, right click on it/New/HTML page/index.html/Finish</h4>
+        </li>
+        <li>
+          <h4>Insert your hello world content into that page, and save.</h4>
+        </li>
+        <li>
+          <h4>Visit your masterpiece at http://localhost:8080/myproject/</h4>
+        </li>
+        <li>
+          <h4>If you found this useful, leave a thanks in the comments below.  Share the luv.</h4>
+        </li>
+      </ol>
     </section>
   </div>
 
