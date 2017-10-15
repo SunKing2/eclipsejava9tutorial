@@ -11,6 +11,8 @@
   <div>
     <div>
       <p>Eclipse IDE is slow. Java 9 is now supported by Eclipse Oxygen.  I show you how to install a minimum version of <strong>Eclipse IDE for Java EE Developers</strong>, without the bloat, and fast!!!</p>
+      <p>This tutorial is <strong>NOT</strong> for Eclipse beginners, it's for developers who are frustrated with the slowness of their existing Eclipse.</p>
+      <p>This tutorial creates a very simple servlet and a web page.  It assumes you are on linux. It assumes you already have Tomcat9 downloaded and unpacked (unzipped) somewhere (don't install Tomcat!, just unzip it, and let Eclipse start and stop it!)</p>
     </div>
 
     <section>
@@ -133,13 +135,19 @@ $ ./eclipse-inst
           <h4>Right click on myproject/New/Servlet/Java package:mystuff/Class name:MyServlet/Finish</h4>
         </li>
         <li>
-          <h4>Right click on myproject/Run as/Run on server/Choose Tomcat 9/Finish (shows error page)</h4>
+          <h4>Right click on myproject/Properties/Java Build Path/Classpath/Add External Jars/servlet-api.jar (from your Tomcat9 folder)/Ok/Apply and Close</h4>
+        </li>
+        <li>
+          <h4>(Optional)Markers Tab (at the bottom of the screen)/(expand)Classpath Dependency Validator Message/Right click on Classpath Entry/Quick fix/Finish</h4>
+        </li>
+        <li>
+          <h4>Right click on myproject/Run as/Run on server/(manually define a new Apache/Tomcat9 server)/Finish (shows error page)</h4>
         </li>
         <li>
           <h4>Point Firefox/Chrome to http://localhost:8080/myproject/MyServlet (and smile!)</h4>
         </li>
         <li>
-          <h4>Find WebContent folder in the project, right click on it/New/HTML page/index.html/Finish</h4>
+          <h4>Find WebContent folder in the project, right click on it/New/HTML File/index.html/Finish</h4>
         </li>
         <li>
           <h4>Insert your hello world content into that page, and save.</h4>
