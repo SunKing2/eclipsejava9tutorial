@@ -37,7 +37,7 @@
           <p><img alt="Eclipse IDE linux 64 bit installer download" src="https://connectedweb.files.wordpress.com/2017/10/screenshot_2017-10-11_15-04-15-bottom.png?w=640"></p>
         </div>
         <div>
-          <h4>4. Rename the existing Eclipse settings directory. (We want a brand new environment):</h4>
+          <h4>4. Rename the existing Eclipse settings directory.   Rename the profiles directory.  (We want a brand new environment):</h4>
         </div>
         <pre class="code">
 $ cd ~
@@ -46,6 +46,12 @@ drwxrwxr-x   10 louie louie   4096 Sep 23 18:00 .eclipse
 $ mv ~/.eclipse ~/.oldeclipse
 $ ls -lart | grep eclipse
 drwxrwxr-x   10 louie louie   4096 Sep 23 18:00 .oldeclipse
+
+$ ls -larth | grep p2
+drwxrwxr-x    6 louie louie 4.0K Oct 12 15:17 .p2
+$ mv .p2 .oldp2
+$ ls -larth | grep p2
+drwxrwxr-x    6 louie louie 4.0K Oct 12 15:17 .oldp2
         </pre>
         <div>
           <h4>5. Go to ~/Downloads, uncompress the <strong>Eclipse download</strong> into ~/Downloads/:</h4>
